@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width maximum-scale=1 initial-scale=1 user-scalable=no">
+    <title>Math expression parser</title>
+    <style>
+
+        body {
+            background-color: #ddd;
+            font-family: 'Helvetica Neue', HelveticaNeue, sans-serif;
+            text-shadow: dodgerblue 0px 1px 1px;
+        }
+
+        pre {
+            text-shadow: none;
+        }
+
+        input {
+            width: 95%;
+            font-family: monospace;
+            font-size: 1.3em;
+            border: 1px solid #bbb;
+            border-radius: 0.5em;
+            padding: 0.2em 0.3em 0.2em 0.4em;
+            background-color: white;
+        }
+
+        table {
+            text-shadow: none;
+            background-color: #e6e6e6;
+            width: 70%;
+            margin-left: 20px;
+            border-collapse: collapse;
+        }
+
+            table td, table th {
+                padding: 0;
+            }
+
+            table td {
+                border: 1px solid #ccc;
+                padding: 3px;
+            }
+
+        .footer {
+            text-shadow: none;
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 2em;
+        }
+    </style>
+    <script src="../js/parser.js"></script>
+    <script src="../js/context.js"></script>
+    <script src="../js/evaluator.js"></script>
+    <script src="../js/lexer.js"></script>
+    <script src="../js/token.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../renderer/parserui.js"></script>
+</head>
+<body>
+    <h3>Enter desired mathematical expression:</h3>
+    <p>
+        <input type="text" id="code" autocapitalize="off" spellcheck="false"
+               value="v = 13*2 + 1" onChange='parse()' onKeyDown='parse()' />
+    <p>Syntax tree:</p>
+<pre id="syntax"></pre>
+    <p>Tokens:</p>
+    <div id="tokens"></div>
+    <script>parse();</script>
+</body>
+</html>
